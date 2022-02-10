@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Company;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 
 /**
@@ -41,5 +42,14 @@ class CompanyRepository extends BaseRepository
     public function model()
     {
         return Company::class;
+    }
+
+    public function createUser($input)
+    {
+        return User::create([
+            'username' => $input['username'],
+            'password' => $input['password'],
+            'role_id' => 2,
+        ]);
     }
 }

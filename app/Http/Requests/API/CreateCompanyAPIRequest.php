@@ -24,6 +24,9 @@ class CreateCompanyAPIRequest extends BaseApiRequest
      */
     public function rules()
     {
-        return Company::$rules;
+        return array_merge(Company::$rules, [
+            'username' => 'required|string|max:255|unique:users,username',
+            'password' => 'required|string|max:255',
+        ]);
     }
 }

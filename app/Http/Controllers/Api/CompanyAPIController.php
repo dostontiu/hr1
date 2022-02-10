@@ -55,6 +55,8 @@ class CompanyAPIController extends AppBaseController
     public function store(CreateCompanyAPIRequest $request)
     {
         $input = $request->all();
+        $user = $this->companyRepository->createUser($input);
+        $input['user_id'] = $user->id;
 
         $company = $this->companyRepository->create($input);
 
