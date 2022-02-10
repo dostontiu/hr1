@@ -48,7 +48,7 @@ class CompanyRepository extends BaseRepository
     {
         return User::create([
             'username' => $input['username'],
-            'password' => $input['password'],
+            'password' => bcrypt($input['password']),
             'role_id' => 2,
         ]);
     }
