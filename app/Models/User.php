@@ -55,6 +55,14 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed

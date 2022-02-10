@@ -55,6 +55,7 @@ class EmployeeAPIController extends AppBaseController
     public function store(CreateEmployeeAPIRequest $request)
     {
         $input = $request->all();
+        $input['company_id'] = auth()->user()->company->id ?? null;
 
         $employee = $this->employeeRepository->create($input);
 
